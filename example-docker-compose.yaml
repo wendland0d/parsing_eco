@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=<db_name>
+      - POSTGRES_PORT=5432
+    ports:
+      - 5432:5432
+
+  tg_bot:
+    depends_on:
+      - db
+    build: bot/
+    restart: always
+    container_name: tg_bot
+    environment:
+      - BOT_DEV_TOKEN=<your_bot_token>
+      - DB_NAME=<db_name>
+    command: python bot.py
+    ports:
+      - 8081:8081
