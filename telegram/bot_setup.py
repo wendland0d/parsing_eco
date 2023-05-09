@@ -2,7 +2,7 @@ from aiogram import types, Bot, Dispatcher
 from sqlalchemy import create_engine
 import os
 
-from models import Base
+from .models import Base
 
 tg_bot = Bot(token=os.getenv('BOT_DEV_TOKEN'))
 dp = Dispatcher()

@@ -1,8 +1,9 @@
 FROM python:3.10
 
-WORKDIR /parsers/
+ENV PYTHONUNBUFFERED 1
 
-COPY . /parsers/
+WORKDIR /parsing/
 
+COPY . /parsing/
 
 RUN pip install -r req.txt

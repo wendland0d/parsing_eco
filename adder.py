@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 with Session(bind=engine) as db:
     buf = Parser(
-        name = 'buff',
+        name = 'steam',
         is_market = True
     )
     db.add(buf)
